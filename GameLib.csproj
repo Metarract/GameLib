@@ -6,6 +6,8 @@
     </PropertyGroup>
     <ItemGroup>
       <Content Include=".gitignore" />
+      <Content Include="Externals\KaimiraGames\LICENSE" />
+      <Content Include="Externals\KaimiraGames\README.md" />
     </ItemGroup>
 
 </Project>
