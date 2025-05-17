@@ -2,6 +2,7 @@
 using System.Reflection;
 
 namespace Metarract.Attributes;
+
 public static class Utilities {
   /// <summary>
   /// Simple / clean method of setting Nodes for props/fields that have the <see cref="NodeAttribute"/>.
@@ -18,23 +19,22 @@ public static class Utilities {
     Type t = node.GetType();
     FieldInfo[] fields = t.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
     PropertyInfo[] properties = t.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-    foreach (FieldInfo fieldInfo in fields) {
-      var att = (NodeAttribute)Attribute.GetCustomAttribute(fieldInfo, typeof(NodeAttribute));
-      if (att is null) continue;
-      string nodePath = GetNodePath(att, fieldInfo);
-      Node nodeRef = node.GetNode(nodePath);
-      fieldInfo.SetValue(node, nodeRef);
-    }
-
-    foreach (PropertyInfo propertyInfo in properties) {
-      var att = (NodeAttribute)Attribute.GetCustomAttribute(propertyInfo, typeof(NodeAttribute));
-      if (att is null) continue;
-      string nodePath = GetNodePath(att, propertyInfo);
-      Node nodeRef = node.GetNode(nodePath);
-      propertyInfo.SetValue(node, nodePath);
-    }
+    foreach (FieldInfo f in fields) SetNodeByAttribute(node, f);
+    foreach (PropertyInfo p in properties) SetNodeByAttribute(node, p);
   }
 
-  private static string GetNodePath(NodeAttribute att, MemberInfo memberInfo) => 
-    att.NodePath ?? NodeAttribute.PREFIX + memberInfo.Name;
+  private static void SetNodeByAttribute<T>(Node node, T m) where T : MemberInfo {
+    var att = (NodeAttribute)Attribute.GetCustomAttribute(m, typeof(NodeAttribute));
+    if (att is null) return;
+    string nodePath = att.NodePath ?? NodeAttribute.PREFIX + m.Name;
+    Node nodeRef = node.GetNode(nodePath);
+    switch (m) {
+      case FieldInfo f:
+        f.SetValue(node, nodeRef);
+        break;
+      case PropertyInfo p:
+        p.SetValue(node, nodeRef);
+        break;
+    }
+  }
 }
