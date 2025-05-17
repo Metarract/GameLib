@@ -5,9 +5,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using static GameLib.Externals.KaimiraGames.WeightErrorHandlingType;
+using static KaimiraGames.WeightErrorHandlingType;
 
-namespace GameLib.Externals.KaimiraGames;
+namespace KaimiraGames;
 /// <summary>
 /// This implements an algorithm for sampling from a discrete probability distribution via a generic list
 /// with extremely fast O(1) get operations and small (close to minimally small) O(n) space complexity and

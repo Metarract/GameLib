@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
-namespace GameLib;
+namespace Metarract;
 public static class Std {
-  private static readonly Random rng = new();
+  private static readonly Random Rng = new();
 
   #region extension methods
   public static void Each<T>(this IEnumerable<T> ie, Action<T, int> action) {
@@ -23,7 +23,7 @@ public static class Std {
     var n = list.Count;
     while (n > 1) {
       n--;
-      var k = rng.Next(n + 1);
+      var k = Rng.Next(n + 1);
       (list[n], list[k]) = (list[k], list[n]);
     }
   }
