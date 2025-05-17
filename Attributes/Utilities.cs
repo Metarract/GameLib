@@ -9,25 +9,26 @@ public static class Utilities {
   /// <seealso cref="NodeAttribute"/>
   /// </summary>
   public static void GetNodes(this Node node) {
-    var t = node.GetType();
-    var fields = t.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-    var properties = t.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+    Type t = node.GetType();
+    FieldInfo[] fields = t.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+    PropertyInfo[] properties = t.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
     foreach (FieldInfo fieldInfo in fields) {
       var att = (NodeAttribute)Attribute.GetCustomAttribute(fieldInfo, typeof(NodeAttribute));
       if (att is null) continue;
-      string nameRef = NodeAttribute.PREFIX + fieldInfo.Name;
-      Node nodeRef = node.GetNode(nameRef);
+      string nodePath = GetNodePath(att, fieldInfo);
+      Node nodeRef = node.GetNode(nodePath);
       fieldInfo.SetValue(node, nodeRef);
     }
 
     foreach (PropertyInfo propertyInfo in properties) {
       var att = (NodeAttribute)Attribute.GetCustomAttribute(propertyInfo, typeof(NodeAttribute));
       if (att is null) continue;
-      var nodeRef = GetNodeByMemberInfo(node, propertyInfo);
-      propertyInfo.SetValue(node, nodeRef);
+      string nodePath = GetNodePath(att, propertyInfo);
+      Node nodeRef = node.GetNode(nodePath);
+      propertyInfo.SetValue(node, nodePath);
     }
   }
 
-  private static Node GetNodeByMemberInfo(Node node, MemberInfo memberInfo) =>
-    node.GetNode(NodeAttribute.PREFIX + memberInfo.Name);
+  private static string GetNodePath(NodeAttribute att, MemberInfo memberInfo) => 
+    att.NodePath ?? NodeAttribute.PREFIX + memberInfo.Name;
 }
