@@ -4,10 +4,16 @@ using System.Reflection;
 namespace Metarract.Attributes;
 public static class Utilities {
   /// <summary>
-  /// Simple / Clean method of getting child nodes for props/fields that have the <c>[Node]</c> Attribute.
-  /// This should be used in the <c>_Ready()</c> method.
-  /// <seealso cref="NodeAttribute"/>
+  /// Simple / clean method of setting Nodes for props/fields that have the <see cref="NodeAttribute"/>.
+  /// Should be used in the <c>_Ready()</c> method.
   /// </summary>
+  /// <example>
+  /// <code>
+  /// public override void _Ready() {
+  ///   this.GetNodes();
+  /// }
+  /// </code>
+  /// </example>
   public static void GetNodes(this Node node) {
     Type t = node.GetType();
     FieldInfo[] fields = t.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
