@@ -1,6 +1,6 @@
 ﻿namespace Metarract.Attributes;
 /// <summary>
-/// To be used with the <see cref="Utilities.GetNodes" /> extension method on properties and fields.
+/// To be used with the <see cref="Utilities.SetNodes" /> extension method on properties and fields.
 /// Class members should either have the same name as the Node in the Godot Editor as well as having a Unique Name set,
 /// or the attribute should specify a <c>NodePath</c>.
 /// </summary>

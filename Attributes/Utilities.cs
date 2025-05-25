@@ -15,7 +15,7 @@ public static class Utilities {
   /// }
   /// </code>
   /// </example>
-  public static void GetNodes(this Node node) {
+  public static void SetNodes(this Node node) {
     Type t = node.GetType();
     FieldInfo[] fields = t.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
     PropertyInfo[] properties = t.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
