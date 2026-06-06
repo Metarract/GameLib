@@ -1,4 +1,6 @@
-﻿namespace Metarract.Attributes;
+﻿using System;
+
+namespace Metarract.GameLib.Attributes;
 /// <summary>
 /// To be used with the <see cref="Utilities.SetNodes" /> extension method on properties and fields.
 /// Class members should either have the same name as the Node in the Godot Editor as well as having a Unique Name set,
@@ -15,6 +17,12 @@
 /// </example>
 [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
 public class NodeAttribute : Attribute {
+  public const char PREFIX = '%';
+  public string NodePath { get; set; }
+}
+
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
+public class NodeOrNullAttribute : Attribute {
   public const char PREFIX = '%';
   public string NodePath { get; set; }
 }

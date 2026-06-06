@@ -1,13 +1,19 @@
-﻿<Project Sdk="Godot.NET.Sdk/4.3.0">
+﻿<Project Sdk="Godot.NET.Sdk/4.4.1">
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+        <LangVersion>13</LangVersion>
+        <PackageId>Metarract.GameLib</PackageId>
+        <Version>0.1.0</Version>
+        <Authors>Metarract</Authors>
+        <RepositoryUrl>https://github.com/Metarract/GameLib</RepositoryUrl>
     </PropertyGroup>
     <ItemGroup>
       <Content Include=".gitignore" />
       <Content Include="Externals\KaimiraGames\LICENSE" />
       <Content Include="Externals\KaimiraGames\README.md" />
+      <Content Include="Externals\README.md" />
+      <Content Include="Godot\Nodes\README.md" />
     </ItemGroup>
-
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace Metarract.Exceptions;
+﻿using System;
+
+namespace Metarract.GameLib.Exceptions;
 
 public class CustomNodeConfigurationException(string[] warning)
   : Exception($"Custom Node configuration error(s): {string.Join(Environment.NewLine, warning)}");

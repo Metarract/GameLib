@@ -1,2 +1,2 @@
-﻿namespace Metarract.Exceptions;
+﻿namespace Metarract.GameLib.Exceptions;
 public class NotInSceneTreeException() : System.Exception("Node not in SceneTree yet");

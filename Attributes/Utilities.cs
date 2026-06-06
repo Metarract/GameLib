@@ -1,7 +1,8 @@
 ﻿using Godot;
+using System;
 using System.Reflection;
 
-namespace Metarract.Attributes;
+namespace Metarract.GameLib.Attributes;
 
 public static class Utilities {
   /// <summary>

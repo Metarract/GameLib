@@ -1,7 +1,8 @@
 ﻿using Godot;
+using System;
 using System.Reflection;
 
-namespace Metarract.Attributes;
+namespace Metarract.GameLib.Attributes;
 // maybe some day..........
 
 /// <summary>
@@ -9,7 +10,7 @@ namespace Metarract.Attributes;
 /// referencing the type
 /// </summary>
 /// <remarks>
-/// DO NOT USE - Broken as of: Godot 4.3 - This breaks C# scene -> script association,
+/// DO NOT USE - Broken (at least as of: Godot 4.3) - This breaks C# scene -> script association,
 /// somehow prevents Godot from seeing the class. Probably true of any class attribute
 /// outside of expected ones
 /// </remarks>
