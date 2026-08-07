@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Metarract.GameLib.Standard;
+namespace Metarract.GameLib.Standard.Collections;
 public static class Collections {
   private static readonly Random Rng = new();
   /// <summary>
@@ -22,14 +22,5 @@ public static class Collections {
   public static void Each<T>(this IEnumerable<T> collection, Action<T, int> action) {
     int i = 0;
     foreach (T e in collection) action(e, i++);
-  }
-  
-  public delegate void GridPositionHandler(int x, int y);
-  public static void ForGridPos<T>(this T[,] items, GridPositionHandler action) {
-    for (int x = 0; x < items.GetLength(0); x++) {
-      for (int y = 0; y < items.GetLength(1); y++) {
-        action(x, y);
-      }
-    }
   }
 }

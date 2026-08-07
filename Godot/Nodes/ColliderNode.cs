@@ -1,4 +1,8 @@
-﻿using Godot;
+﻿/* NOTE
+ * can't be imported normally, has to be a child of the project
+ */
+ 
+using Godot;
 using Metarract.GameLib.Exceptions;
 using System.Collections.Generic;
 using System.Linq;

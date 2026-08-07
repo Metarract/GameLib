@@ -59,6 +59,15 @@ public class Grid<T>(int width, int height) : IEnumerable<T> {
   }
 
   #region Enumeration
+  // public delegate void GridPositionHandler(int x, int y);
+  // public static void ForGridPos<T>(this T[,] items, GridPositionHandler action) {
+  //   for (int x = 0; x < items.GetLength(0); x++) {
+  //     for (int y = 0; y < items.GetLength(1); y++) {
+  //       action(x, y);
+  //     }
+  //   }
+  // }
+  
   public IEnumerator<T> GetEnumerator() {
     foreach (T item in _items) yield return item;
   }
@@ -99,6 +108,7 @@ public class Grid<T>(int width, int height) : IEnumerable<T> {
   }
 }
 
+// TODO: factory + builder for Relative Grid Check? 
 public readonly struct RelativeGridCheck<T>(Grid<T> grid, Vector2I[] relativePositions, Func<T, bool> conditional) {
   /// <summary>
   /// Given a position, checks the established list of relative positions on this object and validates that the

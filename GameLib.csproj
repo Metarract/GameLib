@@ -5,12 +5,12 @@
         <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
         <LangVersion>13</LangVersion>
         <PackageId>Metarract.GameLib</PackageId>
-        <Version>0.1.0</Version>
+        <Version>0.2.0</Version>
         <Authors>Metarract</Authors>
         <RepositoryUrl>https://github.com/Metarract/GameLib</RepositoryUrl>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-      <Content Include=".gitignore" />
       <Content Include="Externals\KaimiraGames\LICENSE" />
       <Content Include="Externals\KaimiraGames\README.md" />
       <Content Include="Externals\README.md" />
