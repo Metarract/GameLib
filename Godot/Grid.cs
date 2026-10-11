@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace Metarract.GameLib.Godot;
+/// <summary>
+/// SUPER WIP class for wrapping a 1d array, and performing 2d operations on it. Not ready!
+/// </summary>
 public class Grid<T>(int width, int height) : IEnumerable<T> {
   public int Width { get; } = width;
   public int Height { get; } = height;
@@ -15,7 +18,7 @@ public class Grid<T>(int width, int height) : IEnumerable<T> {
 
   public delegate void GridPositionAction(int x, int y);
 
-  // TODO! WE ARE HERE! MAKE A STRUCT TO MAKE THE CHECK SIMPLE!!!
+  // TODO - struct for relative checks? or something? see: RelativeGridCheck below
   public delegate void RelativeGridPositionAction(int relativeIndex, T item, Vector2I newPosition);
 
   #region indexing
@@ -165,8 +168,8 @@ public readonly struct RelativeGridCheck<T>(Grid<T> grid, Vector2I[] relativePos
  * visualize with me, the 2 dimensional array
  * -
  * dimensions 3*3
- * elements 00, 01, 02, 10, 11, 12, 20, 21, 22
- * elements 00, 01, 02 / 10, 11, 12 / 20, 21, 22
+ * elements 00, 01, 02,  10, 11, 12,  20, 21, 22
+ * AKA,     00, 01, 02 / 10, 11, 12 / 20, 21, 22
  * 00 01 02
  * 10 11 12
  * 20 21 22

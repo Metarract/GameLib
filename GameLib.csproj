@@ -1,19 +1,27 @@
 ﻿<Project Sdk="Godot.NET.Sdk/4.4.1">
-    <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-        <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-        <LangVersion>13</LangVersion>
-        <PackageId>Metarract.GameLib</PackageId>
-        <Version>0.2.0</Version>
-        <Authors>Metarract</Authors>
-        <RepositoryUrl>https://github.com/Metarract/GameLib</RepositoryUrl>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    </PropertyGroup>
-    <ItemGroup>
-      <Content Include="Externals\KaimiraGames\LICENSE" />
-      <Content Include="Externals\KaimiraGames\README.md" />
-      <Content Include="Externals\README.md" />
-      <Content Include="Godot\Nodes\README.md" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <LangVersion>13</LangVersion>
+    <PackageId>Metarract.GameLib</PackageId>
+    <Version>0.3.1</Version>
+    <Authors>Metarract</Authors>
+    <RepositoryUrl>https://github.com/Metarract/GameLib</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  
+  <!-- Licensing and READMEs for external items -->
+  <ItemGroup>
+    <Content Include="Externals\KaimiraGames\LICENSE"/>
+    <Content Include="Externals\KaimiraGames\README.md"/>
+  </ItemGroup>
+
+  <!-- Items included for ease of copying to Godot project directory, see READMEs for more info -->
+  <ItemGroup>
+    <Content Include="Godot\Nodes\README.md"/>
+    <Content Include="Godot\Shaders\Lib\color-funcs.gdshaderinc"/>
+    <Content Include="Godot\Shaders\Lib\debug_number.gdshaderinc"/>
+    <Content Include="Godot\Shaders\README.md"/>
+  </ItemGroup>
 </Project>
